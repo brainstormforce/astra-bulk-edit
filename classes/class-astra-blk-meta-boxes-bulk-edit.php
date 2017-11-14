@@ -47,6 +47,24 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 */
 		public function __construct() {
 
+			add_action( 'admin_init', array( $this, 'setup_admin_init' ), 999 );
+			
+			// output form elements for quickedit interface.
+			add_action( 'bulk_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
+			add_action( 'quick_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
+			
+			add_action( 'save_post', array( $this, 'save_meta_box' ) );
+
+			add_action( 'wp_ajax_astra_save_post_bulk_edit', array( $this, 'save_post_bulk_edit' ) );
+		}
+
+		/**
+		 *  Admin Init actions
+		 */
+		function setup_admin_init() {
+
 			$this->setup_bulk_options();
 
 			// Get all public posts.
@@ -66,18 +84,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					add_action( 'manage_' . $type . '_posts_custom_column', array( $this, 'manage_custom_admin_columns' ), 10, 2 );
 				}
 			}
-
-			// output form elements for quickedit interface.
-			add_action( 'bulk_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
-			add_action( 'quick_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
-
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
-			
-			add_action( 'save_post', array( $this, 'save_meta_box' ) );
-
-			add_action( 'wp_ajax_astra_save_post_bulk_edit', array( $this, 'save_post_bulk_edit' ) );
 		}
-
+		
 		/**
 		 *  Init bulk options
 		 */
