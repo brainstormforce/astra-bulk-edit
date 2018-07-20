@@ -65,6 +65,11 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 ## Changelog ##
 
+### 1.1.0 ###
+* New: Added Astra Pro 'Transparent Header' addon meta box support in bulk edit.
+* New: Added Astra Pro 'Page Header' addon meta box support in bulk edit.
+* New: Added Astra Pro 'Sticky Header' addon meta box support in bulk edit.
+
 ### 1.0 ###
 * Initial Release
 ## Upgrade Notice ##
