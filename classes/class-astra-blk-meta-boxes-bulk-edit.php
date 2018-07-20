@@ -124,6 +124,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					'theme-transparent-header-meta' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'adv-header-id-meta' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 				)
 			);
 		}
@@ -399,6 +402,28 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-addon' ); ?> </option>
 									</select>
 								</label>
+								<?php endif; ?>
+								
+								<?php if ( Astra_Ext_Extension::is_active( 'advanced-headers' ) ) : ?>
+									<?php
+									$header_options  = Astra_Target_Rules_Fields::get_post_selection( 'astra_adv_header' );
+									$show_meta_field = ! astra_check_is_bb_themer_layout();
+									if ( empty( $header_options ) ) {
+										$header_options = array(
+											'' => __( 'No Page Headers Found', 'astra-addon' ),
+										);
+									}
+									?>
+									<?php if ( $show_meta_field ) { ?>
+									<label class="inline-edit" for="site-sidebar-layout">
+										<span class="title"><?php esc_html_e( 'Page Header', 'astra-bulk-edit' ); ?></span>
+										<select name="adv-header-id-meta" id="adv-header-id-meta">
+											<?php foreach ( $header_options as $key => $value ) { ?>
+												<option value="<?php echo esc_attr( $key ); ?>"> <?php echo $value; ?></option>
+											<?php } ?>
+										</select>
+									</label>
+									<?php } ?>
 								<?php endif; ?>
 
 							<?php endif; ?>
