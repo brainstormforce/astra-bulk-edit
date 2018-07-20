@@ -13,3 +13,7 @@
 .ast-float-left {
 	float: left;
 }
+
+#wpbody-content .quick-edit-row-page .astra-bulk-settings .inline-edit-col-left {
+    width: 33.33%;
+}
