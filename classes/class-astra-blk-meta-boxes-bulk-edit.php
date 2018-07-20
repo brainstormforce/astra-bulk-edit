@@ -127,6 +127,18 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					'adv-header-id-meta' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'stick-header-meta' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'header-above-stick-meta' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'header-main-stick-meta' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'header-below-stick-meta' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 				)
 			);
 		}
@@ -394,7 +406,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							<?php if ( is_callable( 'Astra_Ext_Extension::is_active' ) ) : ?>
 
 								<?php if ( Astra_Ext_Extension::is_active( 'transparent-header' ) ) : ?>
-								<label class="inline-edit" for="site-sidebar-layout">
+								<label class="inline-edit" for="theme-transparent-header-meta">
 									<span class="title"><?php esc_html_e( 'Transparent Header', 'astra-bulk-edit' ); ?></span>
 									<select name="theme-transparent-header-meta" id="theme-transparent-header-meta">
 										<option value="default"> <?php esc_html_e( 'Customizer Setting', 'astra-addon' ); ?> </option>
@@ -415,7 +427,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									}
 									?>
 									<?php if ( $show_meta_field ) { ?>
-									<label class="inline-edit" for="site-sidebar-layout">
+									<label class="inline-edit" for="adv-header-id-meta">
 										<span class="title"><?php esc_html_e( 'Page Header', 'astra-bulk-edit' ); ?></span>
 										<select name="adv-header-id-meta" id="adv-header-id-meta">
 											<?php foreach ( $header_options as $key => $value ) { ?>
@@ -424,6 +436,55 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										</select>
 									</label>
 									<?php } ?>
+								<?php endif; ?>
+
+								<?php if ( Astra_Ext_Extension::is_active( 'sticky-header' ) ) : ?>
+									<label class="inline-edit" for="stick-header-meta">
+										<span class="title"><?php esc_html_e( 'Sticky Header', 'astra-bulk-edit' ); ?></span>
+										<select name="stick-header-meta" id="stick-header-meta">
+											<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-addon' ); ?> </option>
+											<option value="enabled"><?php esc_html_e( 'Enabled', 'astra-addon' ); ?> </option>
+											<option value="disabled"><?php esc_html_e( 'Disabled', 'astra-addon' ); ?> </option>
+										</select>
+									</label>
+
+									<?php
+									if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
+										// Above Header Layout.
+										$above_header_layout = astra_get_option( 'above-header-layout' );
+										if ( 'disabled' != $above_header_layout ) { ?>
+											<label class="inline-edit" for="header-above-stick-meta">
+												<span class="title"><?php esc_html_e( 'Stick Above Header', 'astra-addon' ); ?></span>
+												<input type="checkbox" class="header-above-stick-meta" id="header-above-stick-meta" name="header-above-stick-meta" value="on" />
+											</label>
+												<?php
+											}
+										}
+										// Main Header Layout.
+										$header_layouts = astra_get_option( 'header-layouts' );
+										if ( 'header-main-layout-5' != $header_layouts ) {
+											?>
+											<label class="inline-edit" for="header-main-stick-meta">
+												<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-addon' ); ?></span>
+												<input type="checkbox" class="header-main-stick-meta" id="header-main-stick-meta" name="header-main-stick-meta" value="on" />
+											</label>
+											<?php
+										}
+										if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
+											// Below Header Layout.
+											$below_header_layout = astra_get_option( 'below-header-layout' );
+											if ( 'disabled' != $below_header_layout ) {
+												?>
+												<label class="inline-edit" for="header-below-stick-meta">
+													<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-addon' ); ?></span>
+													<input type="checkbox" class="header-below-stick-meta" id="header-below-stick-meta" name="header-below-stick-meta" value="on" />
+												</label>
+												<?php
+											}
+										}
+										?>
+
+									</div>
 								<?php endif; ?>
 
 							<?php endif; ?>

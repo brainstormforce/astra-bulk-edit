@@ -42,15 +42,16 @@ jQuery(document).ready(function($){
                         new_field.val( field_val );
                     }else if ( 'checkbox' == new_field_type ) {
 
-                        if ( 'disabled' == field_val ) {
+                        if ( 'disabled' == field_val || 'on' == field_val ) {
                             new_field.prop( "checked", true );
                         }
                     }
                 });
+
+                toggleStickyHeader();
             }
         }
     }
-
 
     jQuery( "#bulk_edit" ).on( "click", function(e) {
 
@@ -75,6 +76,35 @@ jQuery(document).ready(function($){
             data: post_data,
             type: 'POST',
             dataType: 'json',
-        });
+        })
+        .done(function() {
+            toggleStickyHeader();
+        })
+
     });
+
+    jQuery( ".inline-edit select[name=stick-header-meta]" ).on( "change", function(e) {
+        toggleStickyHeader();
+    });
+    toggleStickyHeader();
+
+    function toggleStickyHeader() {
+
+        $( 'select[name=stick-header-meta]' ).each(function(index, el) {
+            var value = $( el ).val() || '';
+            if ( 'enabled' == value ) {
+                $( el ).parents( '.inline-edit-col' ).find( '.header-above-stick-meta' ).parents('.inline-edit').slideDown();
+                $( el ).parents( '.inline-edit-col' ).find( '.header-main-stick-meta' ).parents('.inline-edit').slideDown();
+                $( el ).parents( '.inline-edit-col' ).find( '.header-below-stick-meta' ).parents('.inline-edit').slideDown();
+            } else {
+                $( el ).parents( '.inline-edit-col' ).find( '.header-above-stick-meta' ).parents('.inline-edit').slideUp();
+                $( el ).parents( '.inline-edit-col' ).find( '.header-main-stick-meta' ).parents('.inline-edit').slideUp();
+                $( el ).parents( '.inline-edit-col' ).find( '.header-below-stick-meta' ).parents('.inline-edit').slideUp();
+            }
+            
+        });
+        
+
+    }
+
 });
