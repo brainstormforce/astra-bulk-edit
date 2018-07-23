@@ -3,8 +3,8 @@ Contributors: brainstormforce
 Donate link: https://wpastra.com/
 Tags: bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit
 Requires at least: 4.4
-Tested up to: 4.9.5
-Stable tag: 1.0.0
+Tested up to: 4.9.7
+Stable tag: 1.1.0
 Requires PHP: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -60,6 +60,11 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 
 == Changelog ==
+
+= 1.1.0 =
+* New: Added Astra Pro 'Transparent Header' addon meta box support in bulk edit.
+* New: Added Astra Pro 'Page Header' addon meta box support in bulk edit.
+* New: Added Astra Pro 'Sticky Header' addon meta box support in bulk edit.
 
 = 1.0 =
 * Initial Release
