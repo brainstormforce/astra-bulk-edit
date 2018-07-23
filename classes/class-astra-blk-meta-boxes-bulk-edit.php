@@ -409,9 +409,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 								<label class="inline-edit" for="theme-transparent-header-meta">
 									<span class="title"><?php esc_html_e( 'Transparent Header', 'astra-bulk-edit' ); ?></span>
 									<select name="theme-transparent-header-meta" id="theme-transparent-header-meta">
-										<option value="default"> <?php esc_html_e( 'Customizer Setting', 'astra-addon' ); ?> </option>
-										<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-addon' ); ?> </option>
-										<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-addon' ); ?> </option>
+										<option value="default"> <?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?> </option>
+										<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+										<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
 									</select>
 								</label>
 								<?php endif; ?>
@@ -422,7 +422,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									$show_meta_field = ! astra_check_is_bb_themer_layout();
 									if ( empty( $header_options ) ) {
 										$header_options = array(
-											'' => __( 'No Page Headers Found', 'astra-addon' ),
+											'' => __( 'No Page Headers Found', 'astra-bulk-edit' ),
 										);
 									}
 									?>
@@ -442,9 +442,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									<label class="inline-edit" for="stick-header-meta">
 										<span class="title"><?php esc_html_e( 'Sticky Header', 'astra-bulk-edit' ); ?></span>
 										<select name="stick-header-meta" id="stick-header-meta">
-											<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-addon' ); ?> </option>
-											<option value="enabled"><?php esc_html_e( 'Enabled', 'astra-addon' ); ?> </option>
-											<option value="disabled"><?php esc_html_e( 'Disabled', 'astra-addon' ); ?> </option>
+											<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?> </option>
+											<option value="enabled"><?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+											<option value="disabled"><?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
 										</select>
 									</label>
 
@@ -454,7 +454,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										$above_header_layout = astra_get_option( 'above-header-layout' );
 										if ( 'disabled' != $above_header_layout ) { ?>
 											<label class="inline-edit" for="header-above-stick-meta">
-												<span class="title"><?php esc_html_e( 'Stick Above Header', 'astra-addon' ); ?></span>
+												<span class="title"><?php esc_html_e( 'Stick Above Header', 'astra-bulk-edit' ); ?></span>
 												<input type="checkbox" class="header-above-stick-meta" id="header-above-stick-meta" name="header-above-stick-meta" value="on" />
 											</label>
 												<?php
@@ -465,7 +465,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										if ( 'header-main-layout-5' != $header_layouts ) {
 											?>
 											<label class="inline-edit" for="header-main-stick-meta">
-												<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-addon' ); ?></span>
+												<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-bulk-edit' ); ?></span>
 												<input type="checkbox" class="header-main-stick-meta" id="header-main-stick-meta" name="header-main-stick-meta" value="on" />
 											</label>
 											<?php
@@ -476,7 +476,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 											if ( 'disabled' != $below_header_layout ) {
 												?>
 												<label class="inline-edit" for="header-below-stick-meta">
-													<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-addon' ); ?></span>
+													<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-bulk-edit' ); ?></span>
 													<input type="checkbox" class="header-below-stick-meta" id="header-below-stick-meta" name="header-below-stick-meta" value="on" />
 												</label>
 												<?php
