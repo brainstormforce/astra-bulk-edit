@@ -3,7 +3,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit  
 **Requires at least:** 4.4  
-**Tested up to:** 4.9.7  
+**Tested up to:** 5.1 
 **Stable tag:** 1.1.0  
 **Requires PHP:** 5.2  
 **License:** GPLv2 or later  
