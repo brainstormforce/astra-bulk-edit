@@ -341,7 +341,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							<label class="inline-edit" for="site-sidebar-layout">
 								<span class="title"><?php esc_html_e( 'Sidebar', 'astra-bulk-edit' ); ?></span>
 								<select name="site-sidebar-layout" id="site-sidebar-layout">
-									<option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
+									<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+									<option value="default"><?php _e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
 									<option value="left-sidebar"><?php _e( 'Left Sidebar', 'astra-bulk-edit' ); ?></option>
 									<option value="right-sidebar"><?php _e( 'Right Sidebar', 'astra-bulk-edit' ); ?></option>
 									<option value="no-sidebar"><?php _e( 'No Sidebar', 'astra-bulk-edit' ); ?></option>
@@ -351,7 +352,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							<label class="inline-edit" for="site-content-layout">
 								<span class="title"><?php esc_html_e( 'Content Layout', 'astra-bulk-edit' ); ?></span>
 								<select name="site-content-layout" id="site-content-layout">
-									<option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
+									<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+									<option value="default"><?php _e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
 									<option value="content-boxed-container"><?php _e( 'Boxed', 'astra-bulk-edit' ); ?></option>
 									<option value="content-boxed-container"><?php _e( 'Content Boxed', 'astra-bulk-edit' ); ?></option>
 									<option value="plain-container"><?php _e( 'Full Width / Contained', 'astra-bulk-edit' ); ?></option>
@@ -409,6 +411,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 								<label class="inline-edit" for="theme-transparent-header-meta">
 									<span class="title"><?php esc_html_e( 'Transparent Header', 'astra-bulk-edit' ); ?></span>
 									<select name="theme-transparent-header-meta" id="theme-transparent-header-meta">
+										<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
 										<option value="default"> <?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?> </option>
 										<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
 										<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
@@ -442,6 +445,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									<label class="inline-edit" for="stick-header-meta">
 										<span class="title"><?php esc_html_e( 'Sticky Header', 'astra-bulk-edit' ); ?></span>
 										<select name="stick-header-meta" id="stick-header-meta">
+											<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
 											<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?> </option>
 											<option value="enabled"><?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
 											<option value="disabled"><?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
