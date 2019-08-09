@@ -248,10 +248,10 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						}
 
 						// Store values.
-						if ( $meta_value ) {
+						if( ( 'site-sidebar-layout' == $key || 'site-content-layout' == $key || 'theme-transparent-header-meta' == $key || 'adv-header-id-meta' == $key || 'stick-header-meta' == $key) && 'no-change' !== $meta_value ) {
 							update_post_meta( $post_id, $key, $meta_value );
-						} else {
-							delete_post_meta( $post_id, $key );
+						} else if( ( 'ast-main-header-display' == $key || 'ast-featured-img' == $key || 'site-post-title' == $key || 'footer-sml-layout' == $key || 'footer-adv-display' == $key || 'header-above-stick-meta' == $key || 'header-main-stick-meta' == $key || 'header-below-stick-meta' == $key) && 'disabled' == $meta_value ){
+							update_post_meta( $post_id, $key, $meta_value );
 						}
 					}
 				}
