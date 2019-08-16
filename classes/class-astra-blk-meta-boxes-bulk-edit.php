@@ -99,44 +99,55 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			self::$meta_option = apply_filters(
 				'astra_meta_box_bulk_edit_options', array(
 					'ast-main-header-display' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'ast-featured-img' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'site-post-title' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'site-sidebar-layout' => array(
-						'default'  => 'default',
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'site-content-layout' => array(
-						'default'  => 'default',
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'footer-sml-layout' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'footer-adv-display' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'theme-transparent-header-meta' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'adv-header-id-meta' => array(
+						'default'  => 'select',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'stick-header-meta' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'header-above-stick-meta' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'header-main-stick-meta' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'header-below-stick-meta' => array(
+						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)
