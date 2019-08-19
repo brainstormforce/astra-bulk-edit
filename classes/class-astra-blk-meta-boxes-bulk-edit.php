@@ -344,7 +344,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			if ( 'astra-settings' == $column ) { ?>
 				<fieldset class="astra-bulk-settings inline-edit-col ">
 					<div class="inline-edit-col wp-clearfix">
-						<h4 class="title"><?php esc_html_e( 'Astra Setting', 'astra-bulk-edit' ); ?></h4>
+						<h4 class="title"><?php esc_html_e( 'Astra Settings', 'astra-bulk-edit' ); ?></h4>
 
 						<div class="ast-float-left inline-edit-col-left wp-clearfix">
 							<label class="inline-edit" for="site-sidebar-layout">
@@ -373,7 +373,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							<?php do_action( 'astra_meta_bulk_edit_left_bottom' ); ?>
 						</div>
 
-						<div class="ast-float-left inline-edit-col-center wp-clearfix" style="padding-right: 2em;">
+						<div class="ast-float-left inline-edit-col-left wp-clearfix">
 							<label class="inline-edit" for="ast-main-header-display">
 								<span class="title"><?php esc_html_e( 'Primary Header', 'astra-bulk-edit' ); ?></span>
 								<select name="ast-main-header-display" id="ast-main-header-display">
@@ -537,7 +537,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						</div>
 
 					</div>
-				</fieldset>;
+				</fieldset>
 			<?php
 			}
 		}
