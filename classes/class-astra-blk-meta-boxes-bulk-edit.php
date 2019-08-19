@@ -98,7 +98,15 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			 */
 			self::$meta_option = apply_filters(
 				'astra_meta_box_bulk_edit_options', array(
+					'ast-above-header-display' => array(
+						'default'  => 'no-change',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 					'ast-main-header-display' => array(
+						'default'  => 'no-change',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-below-header-display' => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -147,6 +155,10 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'header-below-stick-meta' => array(
+						'default'  => 'no-change',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-breadcrumbs-content' => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -374,6 +386,19 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						</div>
 
 						<div class="ast-float-left inline-edit-col-left wp-clearfix">
+							<?php
+							$above_header_layout = astra_get_option( 'above-header-layout' );
+							if ( 'disabled' != $above_header_layout ) {
+							?>
+							<label class="inline-edit" for="ast-above-header-display">
+								<span class="title"><?php esc_html_e( 'Above Header', 'astra-bulk-edit' ); ?></span>
+								<select name="ast-above-header-display" id="ast-above-header-display">
+									<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+									<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+									<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
+								</select>
+							</label>
+							<?php } ?>
 							<label class="inline-edit" for="ast-main-header-display">
 								<span class="title"><?php esc_html_e( 'Primary Header', 'astra-bulk-edit' ); ?></span>
 								<select name="ast-main-header-display" id="ast-main-header-display">
@@ -382,7 +407,19 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
 								</select>
 							</label>
-							
+							<?php
+							$below_header_layout = astra_get_option( 'below-header-layout' );
+							if ( 'disabled' != $below_header_layout ) {
+							?>
+							<label class="inline-edit" for="ast-below-header-display">
+								<span class="title"><?php esc_html_e( 'Below Header', 'astra-bulk-edit' ); ?></span>
+								<select name="ast-below-header-display" id="ast-below-header-display">
+									<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+									<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+									<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
+								</select>
+							</label>
+							<?php } ?>
 							<label class="inline-edit" for="site-post-title">
 								<span class="title"><?php esc_html_e( 'Title', 'astra-bulk-edit' ); ?></span>
 								<select name="site-post-title" id="site-post-title">
@@ -526,6 +563,20 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 												</label>
 												<?php
 											}
+										}
+										// Breadcrumbs.
+										$ast_breadcrumbs_content = astra_get_option( 'ast-breadcrumbs-content' );
+										if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== astra_get_option( 'breadcrumb-position' ) ) {
+											?>
+											<label class="inline-edit" for="ast-breadcrumbs-content">
+												<span class="title"><?php esc_html_e( 'Breadcrumbs', 'astra-bulk-edit' ); ?></span>
+												<select name="ast-breadcrumbs-content" id="ast-breadcrumbs-content">
+													<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+													<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+													<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
+												</select>
+											</label>
+											<?php
 										}
 										?>
 
