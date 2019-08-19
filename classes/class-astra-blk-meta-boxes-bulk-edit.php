@@ -139,7 +139,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'adv-header-id-meta' => array(
-						'default'  => 'select',
+						// 'default'  => 'SELECT',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'stick-header-meta' => array(
@@ -527,8 +527,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 												<span class="title"><?php esc_html_e( 'Stick Above Header', 'astra-bulk-edit' ); ?></span>
 												<select name="header-above-stick-meta" id="header-above-stick-meta">
 													<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
-													<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
-													<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
+													<option value="on"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+													<option value="off"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
 												</select>
 											</label>
 												<?php
@@ -557,8 +557,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 													<span class="title"><?php esc_html_e( 'Stick Below Header', 'astra-bulk-edit' ); ?></span>
 													<select name="header-below-stick-meta" id="header-below-stick-meta">
 														<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
-														<option value="enabled"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
-														<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
+														<option value="on"> <?php esc_html_e( 'Enabled', 'astra-bulk-edit' ); ?> </option>
+														<option value="off"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
 													</select>
 												</label>
 												<?php

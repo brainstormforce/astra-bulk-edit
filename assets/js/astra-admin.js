@@ -36,10 +36,13 @@ jQuery(document).ready(function($){
                     var new_field       = $row.find( '#' + field_name );
                     var new_field_type  = new_field.attr('type');
                     var new_field_tag   = new_field.prop("tagName");
-                    
 
                     if ( 'SELECT' == new_field_tag ) {
                         new_field.val( field_val );
+
+                        if ( '' == field_val && 'adv-header-id-meta' !=  field_name ) {
+                            new_field.val( 'no-change' );
+                        }
                     }else if ( 'checkbox' == new_field_type ) {
 
                         if ( 'disabled' == field_val || 'on' == field_val ) {
