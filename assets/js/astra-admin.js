@@ -95,14 +95,14 @@ jQuery(document).ready(function($){
 
         $( 'select[name=stick-header-meta]' ).each(function(index, el) {
             var value = $( el ).val() || '';
-            if ( 'enabled' == value ) {
-                $( el ).parents( '.inline-edit-col' ).find( '.header-above-stick-meta' ).parents('.inline-edit').slideDown();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-main-stick-meta' ).parents('.inline-edit').slideDown();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-below-stick-meta' ).parents('.inline-edit').slideDown();
+             if ( 'enabled' == value ) {
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-above-stick-meta").slideDown();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-main-stick-meta").slideDown();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-below-stick-meta").slideDown();
             } else {
-                $( el ).parents( '.inline-edit-col' ).find( '.header-above-stick-meta' ).parents('.inline-edit').slideUp();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-main-stick-meta' ).parents('.inline-edit').slideUp();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-below-stick-meta' ).parents('.inline-edit').slideUp();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-above-stick-meta").slideUp();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-main-stick-meta").slideUp();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-below-stick-meta").slideUp();
             }
             
         });

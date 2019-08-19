@@ -523,7 +523,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										// Above Header Layout.
 										$above_header_layout = astra_get_option( 'above-header-layout' );
 										if ( 'disabled' != $above_header_layout ) { ?>
-											<label class="inline-edit" for="header-above-stick-meta">
+											<label class="inline-edit sticky-header-above-stick-meta" for="header-above-stick-meta">
 												<span class="title"><?php esc_html_e( 'Stick Above Header', 'astra-bulk-edit' ); ?></span>
 												<select name="header-above-stick-meta" id="header-above-stick-meta">
 													<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
@@ -538,7 +538,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										$header_layouts = astra_get_option( 'header-layouts' );
 										if ( 'header-main-layout-5' != $header_layouts ) {
 											?>
-											<label class="inline-edit" for="header-main-stick-meta">
+											<label class="inline-edit sticky-header-main-stick-meta" for="header-main-stick-meta">
 												<span class="title"><?php esc_html_e( 'Stick Primary Header', 'astra-bulk-edit' ); ?></span>
 												<select name="header-main-stick-meta" id="header-main-stick-meta">
 													<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
@@ -553,7 +553,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 											$below_header_layout = astra_get_option( 'below-header-layout' );
 											if ( 'disabled' != $below_header_layout ) {
 												?>
-												<label class="inline-edit" for="header-below-stick-meta">
+												<label class="inline-edit sticky-header-below-stick-meta" for="header-below-stick-meta">
 													<span class="title"><?php esc_html_e( 'Stick Below Header', 'astra-bulk-edit' ); ?></span>
 													<select name="header-below-stick-meta" id="header-below-stick-meta">
 														<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
