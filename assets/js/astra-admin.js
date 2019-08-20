@@ -82,15 +82,21 @@ jQuery(document).ready(function($){
         })
         .done(function() {
             toggleStickyHeader();
+            toggleStickyHeaderVisibility();
         })
 
     });
 
     jQuery( ".inline-edit select[name=stick-header-meta]" ).on( "change", function(e) {
         toggleStickyHeader();
+        toggleStickyHeaderVisibility();
     });
     toggleStickyHeader();
+    toggleStickyHeaderVisibility();
 
+    var sticky_above_header = 'false';
+    var sticky_main_header = 'false';
+    var sticky_below_header = 'false';
     function toggleStickyHeader() {
 
         $( 'select[name=stick-header-meta]' ).each(function(index, el) {
@@ -104,10 +110,52 @@ jQuery(document).ready(function($){
                 $( el ).parents( '.inline-edit-col' ).find(".sticky-header-main-stick-meta").slideUp();
                 $( el ).parents( '.inline-edit-col' ).find(".sticky-header-below-stick-meta").slideUp();
             }
-            
         });
-        
 
+
+        $('#ast-above-header-display').on("change", function ( e ) {
+            var value = $( e.target ).val() || '';
+            if ( 'disabled' == value ) {
+                sticky_above_header = 'true';
+                $(".sticky-header-above-stick-meta").slideUp();
+            } else {
+                sticky_above_header = 'false';
+                $(".sticky-header-above-stick-meta").slideDown();
+            }
+            toggleStickyHeaderVisibility();
+        });
+
+        $('#ast-main-header-display').on("change", function ( e ) {
+            var value = $( e.target ).val() || '';
+            if ( 'disabled' == value ) {
+                sticky_main_header = 'true';
+                $(".sticky-header-main-stick-meta").slideUp();
+            } else {
+                sticky_main_header = 'false';
+                $(".sticky-header-main-stick-meta").slideDown();
+            }
+            toggleStickyHeaderVisibility();
+        });  
+
+        $('#ast-below-header-display').on("change", function ( e ) {
+            var value = $( e.target ).val() || '';
+            if ( 'disabled' == value ) {
+                sticky_below_header = 'true';
+                $(".sticky-header-below-stick-meta").slideUp();
+            } else {
+                sticky_below_header = 'false';
+                $(".sticky-header-below-stick-meta").slideDown();
+            }
+            toggleStickyHeaderVisibility();
+        }); 
     }
 
+    function toggleStickyHeaderVisibility() {
+        if( 'true' == sticky_above_header && 'true' == sticky_main_header && 'true' == sticky_below_header ) {
+            $(".stick-header-meta-visibility").slideUp();
+        }
+        else {
+            $(".stick-header-meta-visibility").slideDown();
+        }
+    }
 });

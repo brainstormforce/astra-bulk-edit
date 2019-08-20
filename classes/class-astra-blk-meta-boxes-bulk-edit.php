@@ -385,7 +385,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							<?php do_action( 'astra_meta_bulk_edit_left_bottom' ); ?>
 						</div>
 
-						<div class="ast-float-left inline-edit-col-left wp-clearfix">
+						<div class="ast-float-left inline-edit-col-left wp-clearfix" id="center-col">
 							<?php
 							$above_header_layout = astra_get_option( 'above-header-layout' );
 							if ( 'disabled' != $above_header_layout ) {
@@ -508,7 +508,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 								<?php endif; ?>
 
 								<?php if ( Astra_Ext_Extension::is_active( 'sticky-header' ) ) : ?>
-									<label class="inline-edit" for="stick-header-meta">
+									<label class="inline-edit stick-header-meta-visibility" for="stick-header-meta">
 										<span class="title"><?php esc_html_e( 'Sticky Header', 'astra-bulk-edit' ); ?></span>
 										<select name="stick-header-meta" id="stick-header-meta">
 											<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
