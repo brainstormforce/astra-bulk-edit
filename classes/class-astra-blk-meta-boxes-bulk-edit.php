@@ -375,7 +375,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 								<select name="site-content-layout" id="site-content-layout">
 									<option value="no-change" selected="selected"><?php _e( '— No Change —', 'astra-bulk-edit' ); ?></option>
 									<option value="default"><?php _e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
-									<option value="content-boxed-container"><?php _e( 'Boxed', 'astra-bulk-edit' ); ?></option>
+									<option value="boxed-container"><?php _e( 'Boxed', 'astra-bulk-edit' ); ?></option>
 									<option value="content-boxed-container"><?php _e( 'Content Boxed', 'astra-bulk-edit' ); ?></option>
 									<option value="plain-container"><?php _e( 'Full Width / Contained', 'astra-bulk-edit' ); ?></option>
 									<option value="page-builder"><?php _e( 'Full Width / Stretched', 'astra-bulk-edit' ); ?></option>
