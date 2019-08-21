@@ -1,14 +1,14 @@
-# Copyright (C) 2018 Brainstorm Force
+# Copyright (C) 2019 Brainstorm Force
 # This file is distributed under the same license as the Astra Bulk Edit package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Astra Bulk Edit 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-bulk-edit\n"
-"POT-Creation-Date: 2018-07-23 07:14:41+00:00\n"
+"POT-Creation-Date: 2019-08-21 12:06:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -22,108 +22,163 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.2\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:338
-msgid "Astra Setting"
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:357
+msgid "Astra Settings"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:342
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:361
 msgid "Sidebar"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:344
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:354
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:412
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:445
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:363
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:374
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:390
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:404
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:417
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:431
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:446
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:456
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:465
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:478
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:492
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:532
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:547
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:562
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:577
+msgid "— No Change —"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:364
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:375
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:432
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:533
 msgid "Customizer Setting"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:345
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:365
 msgid "Left Sidebar"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:346
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:366
 msgid "Right Sidebar"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:347
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:367
 msgid "No Sidebar"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:352
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:372
 msgid "Content Layout"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:355
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:376
 msgid "Boxed"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:356
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:377
 msgid "Content Boxed"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:357
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:378
 msgid "Full Width / Contained"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:358
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:379
 msgid "Full Width / Stretched"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:368
-msgid "Disable Primary Header"
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:388
+msgid "Primary Header"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:373
-msgid "Disable Title"
-msgstr ""
-
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:378
-msgid "Disable Featured Image"
-msgstr ""
-
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:387
-msgid "Disable Footer Widgets"
-msgstr ""
-
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:397
-msgid "Disable Footer Bar"
-msgstr ""
-
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:410
-msgid "Transparent Header"
-msgstr ""
-
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:413
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:446
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:391
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:405
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:418
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:433
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:447
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:457
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:466
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:479
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:493
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:534
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:548
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:563
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:578
 msgid "Enabled"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:414
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:447
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:392
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:406
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:419
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:434
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:448
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:458
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:467
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:480
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:494
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:535
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:549
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:564
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:579
 msgid "Disabled"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:425
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:402
+msgid "Above Header"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:415
+msgid "Below Header"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:429
+msgid "Transparent Header"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:444
+msgid "Breadcrumbs"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:454
+msgid "Title"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:463
+msgid "Featured Image"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:476
+msgid "Footer Widgets"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:490
+msgid "Footer Bar"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:512
 msgid "No Page Headers Found"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:431
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:518
 msgid "Page Header"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:443
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:530
 msgid "Sticky Header"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:457
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:545
 msgid "Stick Above Header"
 msgstr ""
 
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:468
-#: classes/class-astra-blk-meta-boxes-bulk-edit.php:479
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:560
 msgid "Stick Primary Header"
+msgstr ""
+
+#: classes/class-astra-blk-meta-boxes-bulk-edit.php:575
+msgid "Stick Below Header"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
