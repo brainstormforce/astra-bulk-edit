@@ -116,6 +116,7 @@ jQuery(document).ready(function($){
         $('#ast-above-header-display').on("change", function ( e ) {
             var value = $( e.target ).val() || '';
             if ( 'disabled' == value ) {
+                toggleStickyHeaderOnLoad();
                 sticky_above_header = 'true';
                 $(".sticky-header-above-stick-meta").slideUp();
             } else {
@@ -128,6 +129,7 @@ jQuery(document).ready(function($){
         $('#ast-main-header-display').on("change", function ( e ) {
             var value = $( e.target ).val() || '';
             if ( 'disabled' == value ) {
+                toggleStickyHeaderOnLoad();
                 sticky_main_header = 'true';
                 $(".sticky-header-main-stick-meta").slideUp();
             } else {
@@ -140,6 +142,7 @@ jQuery(document).ready(function($){
         $('#ast-below-header-display').on("change", function ( e ) {
             var value = $( e.target ).val() || '';
             if ( 'disabled' == value ) {
+                toggleStickyHeaderOnLoad();
                 sticky_below_header = 'true';
                 $(".sticky-header-below-stick-meta").slideUp();
             } else {
