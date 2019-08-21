@@ -8,7 +8,6 @@ jQuery(document).ready(function($){
     //Prepopulating our quick-edit post info
     var $inline_editor = inlineEditPost.edit;
     inlineEditPost.edit = function(id){
-
         //call old copy 
         $inline_editor.apply( this, arguments);
 
@@ -36,10 +35,13 @@ jQuery(document).ready(function($){
                     var new_field       = $row.find( '#' + field_name );
                     var new_field_type  = new_field.attr('type');
                     var new_field_tag   = new_field.prop("tagName");
-                    
 
                     if ( 'SELECT' == new_field_tag ) {
                         new_field.val( field_val );
+
+                        if ( '' == field_val && 'adv-header-id-meta' !=  field_name ) {
+                            new_field.val( 'no-change' );
+                        }
                     }else if ( 'checkbox' == new_field_type ) {
 
                         if ( 'disabled' == field_val || 'on' == field_val ) {
@@ -49,6 +51,8 @@ jQuery(document).ready(function($){
                 });
 
                 toggleStickyHeader();
+                toggleStickyHeaderOnLoad();
+
             }
         }
     }
@@ -85,26 +89,81 @@ jQuery(document).ready(function($){
 
     jQuery( ".inline-edit select[name=stick-header-meta]" ).on( "change", function(e) {
         toggleStickyHeader();
+
     });
     toggleStickyHeader();
 
+
+    var sticky_above_header = 'false';
+    var sticky_main_header = 'false';
+    var sticky_below_header = 'false';
     function toggleStickyHeader() {
 
         $( 'select[name=stick-header-meta]' ).each(function(index, el) {
             var value = $( el ).val() || '';
-            if ( 'enabled' == value ) {
-                $( el ).parents( '.inline-edit-col' ).find( '.header-above-stick-meta' ).parents('.inline-edit').slideDown();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-main-stick-meta' ).parents('.inline-edit').slideDown();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-below-stick-meta' ).parents('.inline-edit').slideDown();
+             if ( 'enabled' == value ) {
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-above-stick-meta").slideDown();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-main-stick-meta").slideDown();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-below-stick-meta").slideDown();
             } else {
-                $( el ).parents( '.inline-edit-col' ).find( '.header-above-stick-meta' ).parents('.inline-edit').slideUp();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-main-stick-meta' ).parents('.inline-edit').slideUp();
-                $( el ).parents( '.inline-edit-col' ).find( '.header-below-stick-meta' ).parents('.inline-edit').slideUp();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-above-stick-meta").slideUp();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-main-stick-meta").slideUp();
+                $( el ).parents( '.inline-edit-col' ).find(".sticky-header-below-stick-meta").slideUp();
             }
-            
         });
-        
 
+
+        $('#ast-above-header-display').on("change", function ( e ) {
+            var value = $( e.target ).val() || '';
+            if ( 'disabled' == value ) {
+                toggleStickyHeaderOnLoad();
+                sticky_above_header = 'true';
+                $(".sticky-header-above-stick-meta").slideUp();
+            } else {
+                sticky_above_header = 'false';
+                $(".stick-header-meta-visibility").show();
+                $(".sticky-header-above-stick-meta").slideDown();
+            }
+        });
+
+        $('#ast-main-header-display').on("change", function ( e ) {
+            var value = $( e.target ).val() || '';
+            if ( 'disabled' == value ) {
+                toggleStickyHeaderOnLoad();
+                sticky_main_header = 'true';
+                $(".sticky-header-main-stick-meta").slideUp();
+            } else {
+                sticky_main_header = 'false';
+                $(".stick-header-meta-visibility").show();
+                $(".sticky-header-main-stick-meta").slideDown();
+            }
+        });  
+
+        $('#ast-below-header-display').on("change", function ( e ) {
+            var value = $( e.target ).val() || '';
+            if ( 'disabled' == value ) {
+                toggleStickyHeaderOnLoad();
+                sticky_below_header = 'true';
+                $(".sticky-header-below-stick-meta").slideUp();
+            } else {
+                sticky_below_header = 'false';
+                $(".stick-header-meta-visibility").show();
+                $(".sticky-header-below-stick-meta").slideDown();
+            }
+        }); 
+    }
+
+    function toggleStickyHeaderOnLoad() {
+        var above_header_display = $( '#ast-above-header-display' ).val();
+        var main_header_display = $( '#ast-main-header-display' ).val();
+        var below_header_display = $( '#ast-below-header-display' ).val();
+        console.log(above_header_display);
+        if( 'disabled' == above_header_display && 'disabled' == main_header_display && 'disabled' == below_header_display ){
+            $(".stick-header-meta-visibility").hide();
+            $(".sticky-header-above-stick-meta").hide();
+            $(".sticky-header-main-stick-meta").hide();
+            $(".sticky-header-below-stick-meta").hide();
+        }
     }
 
 });

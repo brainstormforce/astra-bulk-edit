@@ -14,6 +14,7 @@
 	float: left;
 }
 
-#wpbody-content .quick-edit-row-page .astra-bulk-settings .inline-edit-col-left {
-    width: 33.33%;
+#wpbody-content .quick-edit-row-page .astra-bulk-settings .inline-edit-col-left,
+#wpbody-content .quick-edit-row-post .astra-bulk-settings .inline-edit-col-left {
+    width: 25%;
 }
