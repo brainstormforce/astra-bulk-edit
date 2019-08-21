@@ -83,7 +83,6 @@ jQuery(document).ready(function($){
         })
         .done(function() {
             toggleStickyHeader();
-            toggleStickyHeaderVisibility();
         })
 
     });
@@ -124,7 +123,6 @@ jQuery(document).ready(function($){
                 $(".stick-header-meta-visibility").show();
                 $(".sticky-header-above-stick-meta").slideDown();
             }
-            toggleStickyHeaderVisibility();
         });
 
         $('#ast-main-header-display').on("change", function ( e ) {
@@ -137,7 +135,6 @@ jQuery(document).ready(function($){
                 $(".stick-header-meta-visibility").show();
                 $(".sticky-header-main-stick-meta").slideDown();
             }
-            toggleStickyHeaderVisibility();
         });  
 
         $('#ast-below-header-display').on("change", function ( e ) {
@@ -150,7 +147,6 @@ jQuery(document).ready(function($){
                 $(".stick-header-meta-visibility").show();
                 $(".sticky-header-below-stick-meta").slideDown();
             }
-            toggleStickyHeaderVisibility();
         }); 
     }
 
