@@ -8,7 +8,6 @@ jQuery(document).ready(function($){
     //Prepopulating our quick-edit post info
     var $inline_editor = inlineEditPost.edit;
     inlineEditPost.edit = function(id){
-
         //call old copy 
         $inline_editor.apply( this, arguments);
 
@@ -52,6 +51,8 @@ jQuery(document).ready(function($){
                 });
 
                 toggleStickyHeader();
+                toggleStickyHeaderOnLoad();
+
             }
         }
     }
@@ -89,10 +90,10 @@ jQuery(document).ready(function($){
 
     jQuery( ".inline-edit select[name=stick-header-meta]" ).on( "change", function(e) {
         toggleStickyHeader();
-        toggleStickyHeaderVisibility();
+
     });
     toggleStickyHeader();
-    toggleStickyHeaderVisibility();
+
 
     var sticky_above_header = 'false';
     var sticky_main_header = 'false';
@@ -120,6 +121,7 @@ jQuery(document).ready(function($){
                 $(".sticky-header-above-stick-meta").slideUp();
             } else {
                 sticky_above_header = 'false';
+                $(".stick-header-meta-visibility").show();
                 $(".sticky-header-above-stick-meta").slideDown();
             }
             toggleStickyHeaderVisibility();
@@ -132,6 +134,7 @@ jQuery(document).ready(function($){
                 $(".sticky-header-main-stick-meta").slideUp();
             } else {
                 sticky_main_header = 'false';
+                $(".stick-header-meta-visibility").show();
                 $(".sticky-header-main-stick-meta").slideDown();
             }
             toggleStickyHeaderVisibility();
@@ -144,18 +147,24 @@ jQuery(document).ready(function($){
                 $(".sticky-header-below-stick-meta").slideUp();
             } else {
                 sticky_below_header = 'false';
+                $(".stick-header-meta-visibility").show();
                 $(".sticky-header-below-stick-meta").slideDown();
             }
             toggleStickyHeaderVisibility();
         }); 
     }
 
-    function toggleStickyHeaderVisibility() {
-        if( 'true' == sticky_above_header && 'true' == sticky_main_header && 'true' == sticky_below_header ) {
-            $(".stick-header-meta-visibility").slideUp();
-        }
-        else {
-            $(".stick-header-meta-visibility").slideDown();
+    function toggleStickyHeaderOnLoad() {
+        var above_header_display = $( '#ast-above-header-display' ).val();
+        var main_header_display = $( '#ast-main-header-display' ).val();
+        var below_header_display = $( '#ast-below-header-display' ).val();
+        console.log(above_header_display);
+        if( 'disabled' == above_header_display && 'disabled' == main_header_display && 'disabled' == below_header_display ){
+            $(".stick-header-meta-visibility").hide();
+            $(".sticky-header-above-stick-meta").hide();
+            $(".sticky-header-main-stick-meta").hide();
+            $(".sticky-header-below-stick-meta").hide();
         }
     }
+
 });
