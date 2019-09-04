@@ -63,7 +63,6 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 = 1.2.1 = 
 - Fix: Quick Edit not working with WooCommerce plugin.
-- Fix: `Error While saving` post issue on classic editor.
 
 = 1.2.0 = 
 - New: Added options to enable/disable Breadcrumbs, Above and Below Header.
