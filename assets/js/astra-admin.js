@@ -157,7 +157,6 @@ jQuery(document).ready(function($){
         var above_header_display = $( '#ast-above-header-display' ).val();
         var main_header_display = $( '#ast-main-header-display' ).val();
         var below_header_display = $( '#ast-below-header-display' ).val();
-        console.log(above_header_display);
         if( 'disabled' == above_header_display && 'disabled' == main_header_display && 'disabled' == below_header_display ){
             $(".stick-header-meta-visibility").hide();
             $(".sticky-header-above-stick-meta").hide();
