@@ -4,7 +4,7 @@
 **Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit  
 **Requires at least:** 4.4  
 **Tested up to:** 5.2 
-**Stable tag:** 1.2.0  
+**Stable tag:** 1.2.1  
 **Requires PHP:** 5.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
