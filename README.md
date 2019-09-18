@@ -61,6 +61,9 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 ## Changelog ##
 
+### 1.2.2 ###
+- Fix: CartFlows step template changes to default. 
+
 ### 1.2.1 ###
 - Fix: Quick Edit not working with WooCommerce plugin.
 
