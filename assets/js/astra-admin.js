@@ -78,6 +78,7 @@ jQuery(document).ready(function($){
             async: false,
             cache: false,
             data: post_data,
+            astra_nonce: security.nonce,
             type: 'POST',
             dataType: 'json',
         })
