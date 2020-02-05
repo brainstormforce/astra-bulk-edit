@@ -331,7 +331,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					$html .= '</div>';
 				}
 
-				echo wp_kses_post( $html );
+				echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 		}
@@ -521,7 +521,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										<span class="title"><?php esc_html_e( 'Page Header', 'astra-bulk-edit' ); ?></span>
 										<select name="adv-header-id-meta" id="adv-header-id-meta">
 											<?php foreach ( $header_options as $key => $value ) { ?>
-												<option value="<?php echo esc_attr( $key ); ?>"> <?php echo esc_attr( $value ); ?></option>
+												<option value="<?php echo esc_attr( $key ); ?>"> <?php echo esc_html( $value ); ?></option>
 											<?php } ?>
 										</select>
 									</label>
