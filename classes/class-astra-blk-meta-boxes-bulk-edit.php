@@ -275,8 +275,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					}
 				}
 			}
-
-			die();
+			wp_send_json_success();
 		}
 
 		/**
@@ -606,16 +605,16 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 */
 		public function enqueue_admin_scripts_and_styles() {
 			wp_enqueue_style( 'astra-blk-admin', ASTRA_BLK_URI . 'assets/css/astra-admin.css', array(), ASTRA_BLK_VER );
-			wp_localize_script(
-				'astra-blk-admin',
-				'security',
-				array(
-					'nonce' => wp_create_nonce( 'astra-blk-nonce' ),
-				)
-			);
 			$post_type = get_post_type();
 			if ( 'product' !== $post_type && 'cartflows_flow' !== $post_type && 'cartflows_step' !== $post_type ) {
 				wp_enqueue_script( 'astra-blk-admin', ASTRA_BLK_URI . 'assets/js/astra-admin.js', array( 'jquery', 'inline-edit-post' ), ASTRA_BLK_VER, false );
+				wp_localize_script(
+					'astra-blk-admin',
+					'security',
+					array(
+						'nonce' => wp_create_nonce( 'astra-blk-nonce' ),
+					)
+				);
 			}
 		}
 	}
