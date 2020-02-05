@@ -57,34 +57,41 @@ jQuery(document).ready(function($){
         }
     }
 
+    var trigger_ajax = true;
+
     jQuery( "#bulk_edit" ).on( "click", function(e) {
 
-        // e.preventDefault();
+        if( true === trigger_ajax ) {
+            e.preventDefault();
 
-        var bulk_row = jQuery( "#bulk-edit" );
-        var post_ids = new Array();
-        bulk_row.find( "#bulk-titles" ).children().each( function() {
-            post_ids.push( jQuery( this ).attr( "id" ).replace( /^(ttle)/i, "" ) );
-        });
+            var bulk_row = jQuery( "#bulk-edit" );
+            var post_ids = new Array();
+            bulk_row.find( "#bulk-titles" ).children().each( function() {
+                post_ids.push( jQuery( this ).attr( "id" ).replace( /^(ttle)/i, "" ) );
+            });
 
-        var form = bulk_row.closest('form');
-        var post_data = form.serialize();
+            var form = bulk_row.closest('form');
+            var post_data = form.serialize();
 
-        post_data += '&action=astra_save_post_bulk_edit';
+            post_data += '&action=astra_save_post_bulk_edit&astra_nonce=' + security.nonce;
 
-        jQuery.ajax({
-            url: ajaxurl,
-            type: "POST",
-            async: false,
-            cache: false,
-            data: post_data,
-            type: 'POST',
-            dataType: 'json',
-        })
-        .done(function() {
-            toggleStickyHeader();
-        })
-
+            jQuery.ajax({
+                url: ajaxurl,
+                type: "POST",
+                async: false,
+                cache: false,
+                data: post_data,
+                type: 'POST',
+                dataType: 'json',
+            })
+            .done(function() {
+                toggleStickyHeader();
+                trigger_ajax = false;
+                $( "#bulk_edit" ).trigger( "click" );
+            })
+        } else {
+            return true;
+        }
     });
 
     jQuery( ".inline-edit select[name=stick-header-meta]" ).on( "change", function(e) {
