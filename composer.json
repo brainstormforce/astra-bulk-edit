@@ -1,0 +1,14 @@
+{
+    "name": "brainstormforce/sidebar-manager",
+    "description": "Create new sidebar areas and display them conditionally on certain pages. Works with all themes.",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+        "wp-coding-standards/wpcs": "dev-master",
+        "phpcompatibility/phpcompatibility-wp": "*"
+    },
+    "scripts": {
+        "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+        "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
+    }
+}
+  
