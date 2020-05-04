@@ -1,6 +1,6 @@
 {
-    "name": "brainstormforce/sidebar-manager",
-    "description": "Create new sidebar areas and display them conditionally on certain pages. Works with all themes.",
+    "name": "brainstormforce/astra-bulk-edit",
+    "description": "Easier way to edit all meta options through Bulk Edit or Quick Edit.",
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
         "wp-coding-standards/wpcs": "dev-master",
