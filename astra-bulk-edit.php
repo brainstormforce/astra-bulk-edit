@@ -12,6 +12,10 @@
  * @package Astra Bulk Edit
  */
 
+if ( 'astra' !== get_template() ) {
+	return;
+}
+
 /**
  * Set constants.
  */
