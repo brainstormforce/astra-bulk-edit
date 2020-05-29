@@ -290,8 +290,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 */
 		public function add_custom_admin_column( $columns ) {
 			$new_columns = array();
+			$theme_name  = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
 
-			$new_columns['astra-settings'] = 'Astra Settings';
+			$new_columns['astra-settings'] = esc_html( $theme_name ) . ' Settings';
 
 			return array_merge( $columns, $new_columns );
 		}
@@ -353,11 +354,12 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			$html = '';
 
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
+			$theme_name = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
 
 			if ( 'astra-settings' == $column ) { ?>
 				<fieldset class="astra-bulk-settings inline-edit-col ">
 					<div class="inline-edit-col wp-clearfix">
-						<h4 class="title"><?php esc_html_e( 'Astra Settings', 'astra-bulk-edit' ); ?></h4>
+						<h4 class="title"><?php esc_html_e( $theme_name . ' Settings', 'astra-bulk-edit' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?></h4>
 
 						<div class="ast-float-left inline-edit-col-left wp-clearfix">
 							<label class="inline-edit" for="site-sidebar-layout">
