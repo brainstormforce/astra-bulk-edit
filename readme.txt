@@ -61,6 +61,9 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 == Changelog ==
 
+= 1.2.5 =
+- Improvement: Hardened the security and accesebility of plugin.
+
 = 1.2.4 = 
 - Fix: Undefined astra_get_option function call when Astra theme is inactive.
 - Fix: White label settings does not get applied for the theme name.
