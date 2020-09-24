@@ -13,7 +13,7 @@
  */
 
 if ( 'astra' !== get_template() ) {
-    return;
+	return;
 }
 
 /**
