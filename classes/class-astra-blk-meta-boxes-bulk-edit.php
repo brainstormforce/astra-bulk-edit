@@ -183,12 +183,13 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		public function save_meta_box( $post_id ) {
 
 			// Checks save status.
-			$is_autosave    = wp_is_post_autosave( $post_id );
-			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['astra_settings_bulk_meta_box'] ) && wp_verify_nonce( $_POST['astra_settings_bulk_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+			$is_autosave     = wp_is_post_autosave( $post_id );
+			$is_revision     = wp_is_post_revision( $post_id );
+			$is_valid_nonce  = ( isset( $_POST['astra_settings_bulk_meta_box'] ) && wp_verify_nonce( $_POST['astra_settings_bulk_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+			$user_capability = ( current_user_can( 'edit_post', $post_id ) );
 
 			// Exits script depending on save status.
-			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
+			if ( $is_autosave || $is_revision || ! $is_valid_nonce || ! $user_capability ) {
 				return;
 			}
 
@@ -322,7 +323,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 					$default_value = '';
 
-					$html .= '<div class="astra-bulk-edit-field-' . $post_id . '" data-name="' . $key . '"  id="' . $key . '-' . $post_id . '">';
+					$html .= '<div class="astra-bulk-edit-field-' . esc_attr( $post_id ) . '" data-name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key . '-' . $post_id ) . '">';
 
 					if ( isset( $meta[ $key ]['default'] ) ) {
 						$default_value = $meta[ $key ]['default'];
