@@ -69,7 +69,7 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 - Fix: White label settings does not get applied for the theme name.
 
 ### 1.2.3 ###
-- Improvement: Hardened the security of plugin
+- Improvement: Hardened the security of plugin.
 - Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules
 
 ### 1.2.2 ###
