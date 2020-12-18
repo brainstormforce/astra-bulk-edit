@@ -3,7 +3,7 @@ Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit
 Requires at least: 4.4
-Tested up to: 5.5
+Tested up to: 5.6
 Stable tag: 1.2.5
 Requires PHP: 5.2
 License: GPLv2 or later
@@ -69,7 +69,7 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 - Fix: White label settings does not get applied for the theme name.
 
 = 1.2.3 =
-- Improvement: Hardened the security of plugin
+- Improvement: Hardened the security of plugin.
 - Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules
 
 = 1.2.2 = 
