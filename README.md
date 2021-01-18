@@ -4,7 +4,7 @@
 **Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit  
 **Requires at least:** 4.4  
 **Tested up to:** 5.6  
-**Stable tag:** 1.2.5  
+**Stable tag:** 1.2.6  
 **Requires PHP:** 5.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -61,12 +61,11 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 ## Changelog ##
 
+### 1.2.6 ###
+- Improvement: Hardened the security of plugin.
+
 ### 1.2.5 ###
-<<<<<<< HEAD
-- Improvement: Hardened the security of plugin
-=======
 - Improvement: Hardened the security and accessibility of plugin.
->>>>>>> b39459eb19550ae40757c05142be3c2606125901
 
 ### 1.2.4 ###
 - Fix: Undefined astra_get_option function call when Astra theme is inactive.
