@@ -3,7 +3,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit  
 **Requires at least:** 4.4  
-**Tested up to:** 5.7
+**Tested up to:** 5.8  
 **Stable tag:** 1.2.6  
 **Requires PHP:** 5.2  
 **License:** GPLv2 or later  
@@ -13,7 +13,7 @@ An easy-to-use plugin for the Astra theme that lets you edit Page Meta Settings 
 
 ## Description ##
 
-The Astra Bulk Edit plugin is useful for editing Astra Meta settings on a number of pages/posts at once. 
+The Astra Bulk Edit plugin is useful for editing Astra Meta settings on a number of pages/posts at once.
 
 Some examples:
 1. Enable or Disable the Page Title from multiple pages.
@@ -33,7 +33,7 @@ https://www.youtube.com/watch?v=mQlTDTXQ8aw
 
 <a href="https://www.brainstormforce.com/go/astra-customizer-reset/?utm_source=wp-repo&utm_campaign=astra-bulk-edit&utm_medium=plugins">Astra Customizer Reset</a>: Wish to revert some customization settings that you’ve made in the Astra theme? The Astra Customizer Reset plugin allows you to do this through the customizer itself.
 
-<a href="https://www.brainstormforce.com/go/custom-typekit-fonts/?utm_source=wp-repo&utm_campaign=astra-bulk-edit&utm_medium=plugins">Custom Typekit Fonts</a>: The Custom Typekit Font plugin lets you to extend font support from typekit. 
+<a href="https://www.brainstormforce.com/go/custom-typekit-fonts/?utm_source=wp-repo&utm_campaign=astra-bulk-edit&utm_medium=plugins">Custom Typekit Fonts</a>: The Custom Typekit Font plugin lets you to extend font support from typekit.
 
 
 ## Installation ##
@@ -76,7 +76,7 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 - Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules
 
 ### 1.2.2 ###
-- Fix: CartFlows step template changes to default. 
+- Fix: CartFlows step template changes to default.
 
 ### 1.2.1 ###
 - Fix: Quick Edit not working with WooCommerce plugin.
