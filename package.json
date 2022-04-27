@@ -4,7 +4,7 @@
   "main": "Gruntfile.js",
   "author": "",
   "devDependencies": {
-    "grunt": "^1.2.1",
+    "grunt": "^1.5.2",
     "grunt-bumpup": "^0.6.3",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-compress": "^1.5.0",
