@@ -124,10 +124,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-layout'           => array(
-						'default'  => 'no-change',
-						'sanitize' => 'FILTER_DEFAULT',
-					),
 					'ast-site-content-layout'           => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
