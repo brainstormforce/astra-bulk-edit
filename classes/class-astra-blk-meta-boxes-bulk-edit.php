@@ -124,6 +124,10 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'site-content-layout'           => array(
+						'default'  => 'no-change',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 					'ast-site-content-layout'           => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
@@ -332,6 +336,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				foreach ( $stored as $key => $value ) {
 					if ( array_key_exists( $key, $meta ) ) {
 						$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) ) {
+							$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );	
+						}
 					}
 				}
 
@@ -368,8 +375,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
 			$theme_name = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
-			$meta   = self::get_meta_option();
-			$old_meta_layout         = isset( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
 			if ( 'astra-settings' == $column ) { ?>
 				<fieldset class="astra-bulk-settings inline-edit-col ">
 					<div class="inline-edit-col wp-clearfix">
@@ -660,6 +665,55 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					)
 				);
 			}
+		}
+
+		/**
+		 * Migrate existing layouts to revamped layout combinations.
+		 *
+		 * @param  string $old_meta_content_layout Old Meta Layout.
+		 * @param  mixed $meta Meta Options.
+		 * @return mixed $meta Meta Options.
+		 */
+		public function migrate_layouts( $old_meta_content_layout, $meta ) {
+			switch ( $old_meta_content_layout ) {
+				case 'plain-container':
+					$meta[ 'ast-site-content-layout' ]['default'] = 'normal-width-container';
+					$meta[ 'site-content-style' ]['default']      = 'unboxed';
+					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					break;
+				case 'boxed-container':
+					$meta[ 'ast-site-content-layout' ]['default'] = 'normal-width-container';
+					$meta[ 'site-content-style' ]['default']      = 'boxed';
+					$meta[ 'site-sidebar-style' ]['default']      = 'boxed';
+					break;
+				case 'content-boxed-container':
+					$meta[ 'ast-site-content-layout' ]['default'] = 'normal-width-container';
+					$meta[ 'site-content-style' ]['default']      = 'boxed';
+					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					break;
+				case 'page-builder':
+					$meta[ 'ast-site-content-layout' ]['default'] = 'full-width-container';
+					$meta[ 'site-content-style' ]['default']      = 'unboxed';
+					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					break;
+				case 'narrow-container':
+					$meta[ 'ast-site-content-layout' ]['default'] = 'narrow-width-container';
+					$meta[ 'site-content-style' ]['default']      = 'unboxed';
+					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					break;
+				case 'no-change':
+					$meta[ 'ast-site-content-layout' ]['default'] = 'no-change';
+					$meta[ 'site-content-style' ]['default']      = 'no-change';
+					$meta[ 'site-sidebar-style' ]['default']      = 'no-change';
+					break;
+				default:
+					$meta[ 'ast-site-content-layout' ]['default'] = 'default';
+					$meta[ 'site-content-style' ]['default']      = 'default';
+					$meta[ 'site-sidebar-style' ]['default']      = 'default';
+					break;
+			}
+
+			return $meta;
 		}
 	}
 }
