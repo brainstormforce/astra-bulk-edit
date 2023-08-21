@@ -124,11 +124,11 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-site-content-layout'           => array(
+					'site-content-layout'           => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-ast-site-content-layout'           => array(
+					'ast-site-content-layout'           => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -372,6 +372,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
 			$theme_name = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
+			$meta   = self::get_meta_option();
 			$old_meta_layout         = isset( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
 			if ( 'astra-settings' == $column ) { ?>
 				<fieldset class="astra-bulk-settings inline-edit-col ">
