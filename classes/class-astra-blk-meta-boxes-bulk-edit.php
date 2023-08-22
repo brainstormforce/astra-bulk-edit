@@ -140,10 +140,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'astra-migrate-meta-layouts'           => array(
-						'default'  => '',
-						'sanitize' => 'FILTER_DEFAULT',
-					),
 					'footer-sml-layout'             => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
@@ -216,10 +212,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 			foreach ( $post_meta as $key => $data ) {
 
-				if ( 'astra-migrate-meta-layouts' === $key && 'set' !== $meta_value ) {
-					update_post_meta( $post_id, $key, 'set' );
-				}
-
 				// Sanitize values.
 				$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
 
@@ -242,7 +234,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						break;
 				}
 
-				// Store values.
 				if ( 'no-change' !== $meta_value ) {
 					update_post_meta( $post_id, $key, $meta_value );
 				}
@@ -297,7 +288,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						// Store values.
 						if ( 'no-change' !== $meta_value ) {
 							update_post_meta( $post_id, $key, $meta_value );
-							update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 						}
 					}
 				}
@@ -344,7 +334,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
 
 						// Apply migrations for old layout options & transition to revamped layout options, if set.
-						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && empty( $meta[ 'astra-migrate-meta-layouts' ]['default'] ) ) {
+						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && ! empty( $meta[ $key ]['default'] ) ) {
 							$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );	
 						}
 					}
