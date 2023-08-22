@@ -216,6 +216,10 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 			foreach ( $post_meta as $key => $data ) {
 
+				if ( 'astra-migrate-meta-layouts' === $key && 'set' !== $meta_value ) {
+					update_post_meta( $post_id, $key, 'set' );
+				}
+
 				// Sanitize values.
 				$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
 
@@ -243,6 +247,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					update_post_meta( $post_id, $key, $meta_value );
 				}
 			}
+
 
 		}
 
@@ -292,6 +297,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						// Store values.
 						if ( 'no-change' !== $meta_value ) {
 							update_post_meta( $post_id, $key, $meta_value );
+							update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 						}
 					}
 				}
@@ -336,7 +342,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				foreach ( $stored as $key => $value ) {
 					if ( array_key_exists( $key, $meta ) ) {
 						$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
-						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) ) {
+
+						// Apply migrations for old layout options & transition to revamped layout options, if set.
+						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && empty( $meta[ 'astra-migrate-meta-layouts' ]['default'] ) ) {
 							$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );	
 						}
 					}
