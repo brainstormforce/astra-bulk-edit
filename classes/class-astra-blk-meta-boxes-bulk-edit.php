@@ -234,6 +234,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						break;
 				}
 
+				// Store values.
 				if ( 'no-change' !== $meta_value ) {
 					update_post_meta( $post_id, $key, $meta_value );
 				}
