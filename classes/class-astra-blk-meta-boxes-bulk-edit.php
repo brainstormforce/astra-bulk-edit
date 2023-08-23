@@ -128,15 +128,15 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-site-content-layout'           => array(
+					'ast-site-content-layout'       => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-style'           => array(
+					'site-content-style'            => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-sidebar-style'           => array(
+					'site-sidebar-style'            => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -240,7 +240,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				}
 			}
 
-
 		}
 
 		/**
@@ -336,7 +335,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 						// Apply migrations for old layout options & transition to revamped layout options, if set.
 						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && ! empty( $meta[ $key ]['default'] ) ) {
-							$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );	
+							$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );
 						}
 					}
 				}
@@ -670,45 +669,45 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 * Migrate existing layouts to revamped layout combinations.
 		 *
 		 * @param  string $old_meta_content_layout Old Meta Layout.
-		 * @param  mixed $meta Meta Options.
+		 * @param  mixed  $meta Meta Options.
 		 * @return mixed $meta Meta Options.
 		 */
 		public function migrate_layouts( $old_meta_content_layout, $meta ) {
 			switch ( $old_meta_content_layout ) {
 				case 'plain-container':
-					$meta[ 'ast-site-content-layout' ]['default'] = 'normal-width-container';
-					$meta[ 'site-content-style' ]['default']      = 'unboxed';
-					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					$meta['ast-site-content-layout']['default'] = 'normal-width-container';
+					$meta['site-content-style']['default']      = 'unboxed';
+					$meta['site-sidebar-style']['default']      = 'unboxed';
 					break;
 				case 'boxed-container':
-					$meta[ 'ast-site-content-layout' ]['default'] = 'normal-width-container';
-					$meta[ 'site-content-style' ]['default']      = 'boxed';
-					$meta[ 'site-sidebar-style' ]['default']      = 'boxed';
+					$meta['ast-site-content-layout']['default'] = 'normal-width-container';
+					$meta['site-content-style']['default']      = 'boxed';
+					$meta['site-sidebar-style']['default']      = 'boxed';
 					break;
 				case 'content-boxed-container':
-					$meta[ 'ast-site-content-layout' ]['default'] = 'normal-width-container';
-					$meta[ 'site-content-style' ]['default']      = 'boxed';
-					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					$meta['ast-site-content-layout']['default'] = 'normal-width-container';
+					$meta['site-content-style']['default']      = 'boxed';
+					$meta['site-sidebar-style']['default']      = 'unboxed';
 					break;
 				case 'page-builder':
-					$meta[ 'ast-site-content-layout' ]['default'] = 'full-width-container';
-					$meta[ 'site-content-style' ]['default']      = 'unboxed';
-					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					$meta['ast-site-content-layout']['default'] = 'full-width-container';
+					$meta['site-content-style']['default']      = 'unboxed';
+					$meta['site-sidebar-style']['default']      = 'unboxed';
 					break;
 				case 'narrow-container':
-					$meta[ 'ast-site-content-layout' ]['default'] = 'narrow-width-container';
-					$meta[ 'site-content-style' ]['default']      = 'unboxed';
-					$meta[ 'site-sidebar-style' ]['default']      = 'unboxed';
+					$meta['ast-site-content-layout']['default'] = 'narrow-width-container';
+					$meta['site-content-style']['default']      = 'unboxed';
+					$meta['site-sidebar-style']['default']      = 'unboxed';
 					break;
 				case 'no-change':
-					$meta[ 'ast-site-content-layout' ]['default'] = 'no-change';
-					$meta[ 'site-content-style' ]['default']      = 'no-change';
-					$meta[ 'site-sidebar-style' ]['default']      = 'no-change';
+					$meta['ast-site-content-layout']['default'] = 'no-change';
+					$meta['site-content-style']['default']      = 'no-change';
+					$meta['site-sidebar-style']['default']      = 'no-change';
 					break;
 				default:
-					$meta[ 'ast-site-content-layout' ]['default'] = 'default';
-					$meta[ 'site-content-style' ]['default']      = 'default';
-					$meta[ 'site-sidebar-style' ]['default']      = 'default';
+					$meta['ast-site-content-layout']['default'] = 'default';
+					$meta['site-content-style']['default']      = 'default';
+					$meta['site-sidebar-style']['default']      = 'default';
 					break;
 			}
 
