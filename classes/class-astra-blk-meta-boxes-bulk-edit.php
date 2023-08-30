@@ -693,6 +693,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 * @param  string $old_meta_content_layout Old Meta Layout.
 		 * @param  mixed  $meta Meta Options.
 		 * @return mixed $meta Meta Options.
+		 * @since 1.2.7
+		 *
 		 */
 		public function migrate_layouts( $old_meta_content_layout, $meta ) {
 			switch ( $old_meta_content_layout ) {
