@@ -391,7 +391,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									<option value="no-sidebar"><?php esc_html_e( 'No Sidebar', 'astra-bulk-edit' ); ?></option>
 								</select>
 							</label>
-							
+
 							<?php if ( defined( 'ASTRA_THEME_VERSION' ) && version_compare( ASTRA_THEME_VERSION, '4.2.0', '<' ) ) { ?>
 
 								<!-- Legacy Layout Options -->
@@ -688,13 +688,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		}
 
 		/**
-		 * Migrate existing layouts to revamped layout combinations.
-		 *
-		 * @param  string $old_meta_content_layout Old Meta Layout.
-		 * @param  mixed  $meta Meta Options.
-		 * @return mixed $meta Meta Options.
-		 * @since 1.2.7
-		 *
+		 *  Migrate existing layouts to revamped layout combinations.
 		 */
 		public function migrate_layouts( $old_meta_content_layout, $meta ) {
 			switch ( $old_meta_content_layout ) {
