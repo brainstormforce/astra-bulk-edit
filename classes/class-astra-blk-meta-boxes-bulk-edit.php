@@ -689,6 +689,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 		/**
 		 * Migrate existing layouts to revamped layout combinations.
+		 *
 		 * @param  string $old_meta_content_layout Old Meta Layout.
 		 * @param  mixed  $meta Meta Options.
 		 * @return mixed $meta Meta Options.
