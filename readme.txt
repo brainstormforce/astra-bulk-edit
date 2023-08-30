@@ -61,7 +61,7 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 == Changelog ==
 
-= 2.0.0 =
+= 1.2.7 =
 - Improvement: Compatibility with the Latest Astra Revamped Layout Options.
 
 = 1.2.6 =
