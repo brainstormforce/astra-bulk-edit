@@ -342,9 +342,9 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					$html .= '<div class="astra-bulk-edit-field-' . esc_attr( $post_id ) . '" data-name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key . '-' . $post_id ) . '">';
 
 					if ( isset( $meta[ $key ]['default'] ) ) {
-						
+
 						// Apply migrations for old layout options & transition to revamped layout options, if set.
-						if ( defined('ASTRA_THEME_VERSION') && version_compare( ASTRA_THEME_VERSION, '4.2.0', '>=' ) ) {
+						if ( defined( 'ASTRA_THEME_VERSION' ) && version_compare( ASTRA_THEME_VERSION, '4.2.0', '>=' ) ) {
 							if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && ! empty( $meta[ $key ]['default'] ) ) {
 								$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );
 							}
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 								</select>
 							</label>
 							
-							<?php if ( defined('ASTRA_THEME_VERSION') && version_compare( ASTRA_THEME_VERSION, '4.2.0', '<' ) ) { ?>
+							<?php if ( defined( 'ASTRA_THEME_VERSION' ) && version_compare( ASTRA_THEME_VERSION, '4.2.0', '<' ) ) { ?>
 
 								<!-- Legacy Layout Options -->
 								<label class="inline-edit" for="site-content-layout">
