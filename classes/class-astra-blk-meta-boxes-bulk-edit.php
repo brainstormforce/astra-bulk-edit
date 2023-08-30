@@ -391,7 +391,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									<option value="no-sidebar"><?php esc_html_e( 'No Sidebar', 'astra-bulk-edit' ); ?></option>
 								</select>
 							</label>
-							
+
 							<?php if ( defined( 'ASTRA_THEME_VERSION' ) && version_compare( ASTRA_THEME_VERSION, '4.2.0', '<' ) ) { ?>
 
 								<!-- Legacy Layout Options -->
