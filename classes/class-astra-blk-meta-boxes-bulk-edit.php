@@ -332,11 +332,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				foreach ( $stored as $key => $value ) {
 					if ( array_key_exists( $key, $meta ) ) {
 						$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
-
-						// Apply migrations for old layout options & transition to revamped layout options, if set.
-						if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && ! empty( $meta[ $key ]['default'] ) ) {
-							$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );
-						}
 					}
 				}
 
@@ -347,6 +342,14 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					$html .= '<div class="astra-bulk-edit-field-' . esc_attr( $post_id ) . '" data-name="' . esc_attr( $key ) . '"  id="' . esc_attr( $key . '-' . $post_id ) . '">';
 
 					if ( isset( $meta[ $key ]['default'] ) ) {
+						
+						// Apply migrations for old layout options & transition to revamped layout options, if set.
+						if ( defined('ASTRA_THEME_VERSION') && version_compare( ASTRA_THEME_VERSION, '4.2.0', '>=' ) ) {
+							if ( 'site-content-layout' === $key && isset( $meta[ $key ]['default'] ) && ! empty( $meta[ $key ]['default'] ) ) {
+								$meta = self::migrate_layouts( $meta[ $key ]['default'], $meta );
+							}
+						}
+
 						$default_value = $meta[ $key ]['default'];
 					}
 
@@ -370,7 +373,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		public function display_quick_edit_custom( $column, $screen ) {
 
 			$html = '';
-
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
 			$theme_name = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
 			if ( 'astra-settings' == $column ) { ?>
@@ -389,37 +391,57 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									<option value="no-sidebar"><?php esc_html_e( 'No Sidebar', 'astra-bulk-edit' ); ?></option>
 								</select>
 							</label>
+							
+							<?php if ( defined('ASTRA_THEME_VERSION') && version_compare( ASTRA_THEME_VERSION, '4.2.0', '<' ) ) { ?>
 
-							<label class="inline-edit" for="ast-site-content-layout">
-								<span class="title"><?php esc_html_e( 'Content Layout', 'astra-bulk-edit' ); ?></span>
-								<select name="ast-site-content-layout" id="ast-site-content-layout">
-									<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
-									<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
-									<option value="normal-width-container"><?php esc_html_e( 'Normal', 'astra-bulk-edit' ); ?></option>
-									<option value="narrow-width-container"><?php esc_html_e( 'Narrow', 'astra-bulk-edit' ); ?></option>
-									<option value="full-width-container"><?php esc_html_e( 'Full Width', 'astra-bulk-edit' ); ?></option>
-								</select>
-							</label>
+								<!-- Legacy Layout Options -->
+								<label class="inline-edit" for="site-content-layout">
+									<span class="title"><?php esc_html_e( 'Content Layout', 'astra-bulk-edit' ); ?></span>
+									<select name="site-content-layout" id="site-content-layout">
+										<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+										<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
+										<option value="boxed-container"><?php esc_html_e( 'Boxed', 'astra-bulk-edit' ); ?></option>
+										<option value="content-boxed-container"><?php esc_html_e( 'Content Boxed', 'astra-bulk-edit' ); ?></option>
+										<option value="plain-container"><?php esc_html_e( 'Full Width / Contained', 'astra-bulk-edit' ); ?></option>
+										<option value="page-builder"><?php esc_html_e( 'Full Width / Stretched', 'astra-bulk-edit' ); ?></option>
+									</select>
+								</label>
 
-							<label class="inline-edit" for="site-content-style">
-								<span class="title"><?php esc_html_e( 'Content Style', 'astra-bulk-edit' ); ?></span>
-								<select name="site-content-style" id="site-content-style">
-									<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
-									<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
-									<option value="unboxed"><?php esc_html_e( 'Unboxed', 'astra-bulk-edit' ); ?></option>
-									<option value="boxed"><?php esc_html_e( 'Boxed', 'astra-bulk-edit' ); ?></option>
-								</select>
-							</label>
+							<?php } else { ?>
 
-							<label class="inline-edit" for="site-sidebar-style">
-								<span class="title"><?php esc_html_e( 'Sidebar Style', 'astra-bulk-edit' ); ?></span>
-								<select name="site-sidebar-style" id="site-sidebar-style">
-									<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
-									<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
-									<option value="unboxed"><?php esc_html_e( 'Unboxed', 'astra-bulk-edit' ); ?></option>
-									<option value="boxed"><?php esc_html_e( 'Boxed', 'astra-bulk-edit' ); ?></option>
-								</select>
-							</label>
+								<!-- Revamped Layout Options -->
+								<label class="inline-edit" for="ast-site-content-layout">
+									<span class="title"><?php esc_html_e( 'Content Layout', 'astra-bulk-edit' ); ?></span>
+									<select name="ast-site-content-layout" id="ast-site-content-layout">
+										<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+										<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
+										<option value="normal-width-container"><?php esc_html_e( 'Normal', 'astra-bulk-edit' ); ?></option>
+										<option value="narrow-width-container"><?php esc_html_e( 'Narrow', 'astra-bulk-edit' ); ?></option>
+										<option value="full-width-container"><?php esc_html_e( 'Full Width', 'astra-bulk-edit' ); ?></option>
+									</select>
+								</label>
+
+								<label class="inline-edit" for="site-content-style">
+									<span class="title"><?php esc_html_e( 'Content Style', 'astra-bulk-edit' ); ?></span>
+									<select name="site-content-style" id="site-content-style">
+										<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+										<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
+										<option value="unboxed"><?php esc_html_e( 'Unboxed', 'astra-bulk-edit' ); ?></option>
+										<option value="boxed"><?php esc_html_e( 'Boxed', 'astra-bulk-edit' ); ?></option>
+									</select>
+								</label>
+
+								<label class="inline-edit" for="site-sidebar-style">
+									<span class="title"><?php esc_html_e( 'Sidebar Style', 'astra-bulk-edit' ); ?></span>
+									<select name="site-sidebar-style" id="site-sidebar-style">
+										<option value="no-change" selected="selected"><?php esc_html_e( '— No Change —', 'astra-bulk-edit' ); ?></option>
+										<option value="default"><?php esc_html_e( 'Customizer Setting', 'astra-bulk-edit' ); ?></option>
+										<option value="unboxed"><?php esc_html_e( 'Unboxed', 'astra-bulk-edit' ); ?></option>
+										<option value="boxed"><?php esc_html_e( 'Boxed', 'astra-bulk-edit' ); ?></option>
+									</select>
+								</label>
+
+							<?php } ?>
 
 							<?php do_action( 'astra_meta_bulk_edit_left_bottom' ); ?>
 						</div>
