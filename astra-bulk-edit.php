@@ -3,7 +3,7 @@
  * Plugin Name: Astra Bulk Edit
  * Plugin URI:  http://www.wpastra.com/pro/
  * Description: Easier way to edit Astra meta options in bulk.
- * Version: 1.2.6
+ * Version: 1.2.7
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Domain Path: /languages
