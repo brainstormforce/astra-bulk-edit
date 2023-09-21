@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 */
 		public function save_post_bulk_edit() {
 
-			if ( ! check_ajax_referer( 'astra-blk-nonce', 'astra_nonce' ) ) {
+			if ( ! current_user_can( 'edit_posts' ) || ! check_ajax_referer( 'astra-blk-nonce', 'astra_nonce' ) ) {
 				wp_send_json_error( esc_html__( 'Action failed. Invalid Security Nonce.', 'astra-bulk-edit' ) );
 			}
 
