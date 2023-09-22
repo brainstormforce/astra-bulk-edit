@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 		 */
 		public function save_post_bulk_edit() {
 
-			if ( ! current_user_can( 'edit_posts' ) || ! check_ajax_referer( 'astra-blk-nonce', 'astra_nonce' ) ) {
+			if ( ! check_ajax_referer( 'astra-blk-nonce', 'astra_nonce' ) ) {
 				wp_send_json_error( esc_html__( 'Action failed. Invalid Security Nonce.', 'astra-bulk-edit' ) );
 			}
 
@@ -260,34 +260,35 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				$post_meta = self::get_meta_option();
 
 				foreach ( $post_ids as $post_id ) {
+					if ( current_user_can( 'edit_post', $post_id ) ) {
+						foreach ( $post_meta as $key => $data ) {
 
-					foreach ( $post_meta as $key => $data ) {
+							// Sanitize values.
+							$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
 
-						// Sanitize values.
-						$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
+							switch ( $sanitize_filter ) {
 
-						switch ( $sanitize_filter ) {
+								case 'FILTER_SANITIZE_STRING':
+										$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+									break;
 
-							case 'FILTER_SANITIZE_STRING':
-									$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
-								break;
+								case 'FILTER_SANITIZE_URL':
+										$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_URL );
+									break;
 
-							case 'FILTER_SANITIZE_URL':
-									$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_URL );
-								break;
+								case 'FILTER_SANITIZE_NUMBER_INT':
+										$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_NUMBER_INT );
+									break;
 
-							case 'FILTER_SANITIZE_NUMBER_INT':
-									$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_NUMBER_INT );
-								break;
+								default:
+										$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );
+									break;
+							}
 
-							default:
-									$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );
-								break;
-						}
-
-						// Store values.
-						if ( 'no-change' !== $meta_value ) {
-							update_post_meta( $post_id, $key, $meta_value );
+							// Store values.
+							if ( 'no-change' !== $meta_value ) {
+								update_post_meta( $post_id, $key, $meta_value );
+							}
 						}
 					}
 				}
