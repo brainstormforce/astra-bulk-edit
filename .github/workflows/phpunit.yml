@@ -1,0 +1,51 @@
+name: PHPUnit
+
+on: pull_request
+
+jobs:
+  phpunit:
+    name: PHPUnit (PHP ${{ matrix.php }} with WordPress ${{ matrix.wordpress }})
+    runs-on: ubuntu-latest
+
+    env:
+       WP_DB_HOST: 127.0.0.1
+       WP_DB_NAME: local
+       WP_DB_USER: root
+       WP_DB_PASS: ""
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+           MYSQL_DATABASE: local
+           MYSQL_ROOT_PASSWORD: root
+        ports:
+           - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4']
+        wordpress: ['trunk']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer, cs2pr
+
+      - name: Composer Install
+        uses: ramsey/composer-install@v1
+
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Run tests
+        run: composer run test
