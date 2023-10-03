@@ -8,3 +8,8 @@ node_modules/
 *.tar.gz
 *.zip
 vendor/
+
+# phpunit
+.phpunit.result.cache
+wordpress/
+config.bat

@@ -3,16 +3,22 @@
     "description": "Easier way to edit all meta options through Bulk Edit or Quick Edit.",
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-        "wp-coding-standards/wpcs": "dev-master",
-        "phpcompatibility/phpcompatibility-wp": "*"
+        "wp-coding-standards/wpcs": "^2.2",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5",
+        "wp-phpunit/wp-phpunit": "^6.0",
+        "yoast/phpunit-polyfills": "^1.0",
+        "roots/wordpress": "^6.0"
     },
     "scripts": {
         "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-        "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
+        "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source",
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "roots/wordpress-core-installer": true
         }
     }
 }
