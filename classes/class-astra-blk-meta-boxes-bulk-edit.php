@@ -676,7 +676,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			}
 
 			$post_type = get_post_type();
-			if ( 'product' !== $post_type && 'cartflows_flow' !== $post_type && 'cartflows_step' !== $post_type ) {
+			if ( 'product' !== $post_type && 'cartflows_flow' !== $post_type && 'cartflows_step' !== $post_type && 'sites.php' !== $GLOBALS['pagenow'] ) {
 				wp_enqueue_script( 'astra-blk-admin', ASTRA_BLK_URI . 'assets/js/astra-admin.js', array( 'jquery', 'inline-edit-post' ), ASTRA_BLK_VER, false );
 				wp_localize_script(
 					'astra-blk-admin',
