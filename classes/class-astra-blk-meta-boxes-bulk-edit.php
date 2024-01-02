@@ -508,6 +508,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							$ast_breadcrumbs_content = astra_get_option( 'ast-breadcrumbs-content' );
 							if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== astra_get_option( 'breadcrumb-position' ) ) {
 								?>
+								<br>
+								<br>
 								<label class="inline-edit" for="ast-breadcrumbs-content">
 									<span class="title"><?php esc_html_e( 'Breadcrumbs', 'astra-bulk-edit' ); ?></span>
 									<select name="ast-breadcrumbs-content" id="ast-breadcrumbs-content">
