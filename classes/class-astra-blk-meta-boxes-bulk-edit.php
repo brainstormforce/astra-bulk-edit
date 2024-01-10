@@ -112,15 +112,15 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-hfb-above-header-display'       => array(
+					'ast-hfb-above-header-display'  => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-hfb-below-header-display'       => array(
+					'ast-hfb-below-header-display'  => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-hfb-mobile-header-display'       => array(
+					'ast-hfb-mobile-header-display' => array(
 						'default'  => 'no-change',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -387,7 +387,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 			$html = '';
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
-			$theme_name = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
+			$theme_name        = apply_filters( 'astra_page_title', __( 'Astra', 'astra-bulk-edit' ) );
 			$is_builder_active = is_callable( 'Astra_Builder_Helper::is_header_footer_builder_active' ) ? Astra_Builder_Helper::is_header_footer_builder_active() : false;
 			if ( 'astra-settings' == $column ) { ?>
 				<fieldset class="astra-bulk-settings inline-edit-col ">
@@ -485,18 +485,18 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 							// Above Header Layout.
 							if ( $is_builder_active ) {
-								$above_header_meta = ( Astra_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'above', 'header', 'mobile' ) ) ? true : false;
+								$above_header_meta     = ( Astra_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'above', 'header', 'mobile' ) ) ? true : false;
 								$above_header_meta_key = 'ast-hfb-above-header-display';
 							} elseif ( ! $is_builder_active && is_callable( 'Astra_Ext_Extension::is_active' ) && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-								$above_header_layout = astra_get_option( 'above-header-layout' );
-								$above_header_meta = 'disabled' != $above_header_layout ? true : false;
+								$above_header_layout   = astra_get_option( 'above-header-layout' );
+								$above_header_meta     = 'disabled' != $above_header_layout ? true : false;
 								$above_header_meta_key = 'ast-above-header-display';
 							} else {
-								$above_header_meta = false;
+								$above_header_meta     = false;
 								$above_header_meta_key = 'ast-above-header-display';
 							}
 							if ( $above_header_meta ) {
-									?>
+								?>
 							<label class="inline-edit" for="<?php echo esc_attr( $above_header_meta_key ); ?>">
 								<span class="title"><?php esc_html_e( 'Above Header', 'astra-bulk-edit' ); ?></span>
 								<select name="<?php echo esc_attr( $above_header_meta_key ); ?>" id="<?php echo esc_attr( $above_header_meta_key ); ?>">
@@ -509,14 +509,14 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 								<?php
 								// Below Header Layout.
 								if ( $is_builder_active ) {
-									$below_header_meta = ( Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'below', 'header', 'mobile' ) ) ? true : false;
+									$below_header_meta     = ( Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'below', 'header', 'mobile' ) ) ? true : false;
 									$below_header_meta_key = 'ast-hfb-below-header-display';
 								} elseif ( ! $is_builder_active && is_callable( 'Astra_Ext_Extension::is_active' ) && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-									$below_header_layout = astra_get_option( 'below-header-layout' );
-									$below_header_meta = 'disabled' != $below_header_layout ? true : false;
+									$below_header_layout   = astra_get_option( 'below-header-layout' );
+									$below_header_meta     = 'disabled' != $below_header_layout ? true : false;
 									$below_header_meta_key = 'ast-below-header-display';
 								} else {
-									$below_header_meta = false;
+									$below_header_meta     = false;
 									$below_header_meta_key = 'ast-below-header-display';
 								}
 								if ( $below_header_meta ) {
@@ -544,7 +544,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										</label>
 									<?php
 								}
-							?>
+								?>
 
 							<?php
 							$ast_theme_transparent_header = astra_get_option( 'theme-transparent-header-meta' );
@@ -601,7 +601,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										$above_header_meta = ( Astra_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'above', 'header', 'mobile' ) ) ? true : false;
 									} elseif ( ! $is_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
 										$above_header_layout = astra_get_option( 'above-header-layout' );
-										$above_header_meta = 'disabled' != $above_header_layout ? true : false;
+										$above_header_meta   = 'disabled' != $above_header_layout ? true : false;
 									} else {
 										$above_header_meta = false;
 									}
@@ -622,7 +622,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 									if ( $is_builder_active ) {
 										$primary_header_meta = ( Astra_Builder_Helper::is_row_empty( 'primary', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'primary', 'header', 'mobile' ) ) ? true : false;
 									} elseif ( ! $is_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-										$header_layouts = astra_get_option( 'header-layouts' );
+										$header_layouts      = astra_get_option( 'header-layouts' );
 										$primary_header_meta = 'header-main-layout-5' != $header_layouts ? true : false;
 									} else {
 										$primary_header_meta = false;
@@ -644,7 +644,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										$below_header_meta = ( Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) || Astra_Builder_Helper::is_row_empty( 'below', 'header', 'mobile' ) ) ? true : false;
 									} elseif ( ! $is_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
 										$below_header_layout = astra_get_option( 'below-header-layout' );
-										$below_header_meta = 'disabled' != $below_header_layout ? true : false;
+										$below_header_meta   = 'disabled' != $below_header_layout ? true : false;
 									} else {
 										$below_header_meta = false;
 									}
@@ -672,7 +672,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							<?php
 							// Breadcrumbs.
 							$ast_breadcrumbs_position = astra_get_option( 'breadcrumb-position', 'none' );
-							error_log( $ast_breadcrumbs_position );
 							if ( 'none' !== $ast_breadcrumbs_position ) {
 								?>
 								<label class="inline-edit" for="ast-breadcrumbs-content">
@@ -730,7 +729,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										<option value="disabled"> <?php esc_html_e( 'Disabled', 'astra-bulk-edit' ); ?> </option>
 									</select>
 								</label>
-							<?php }
+								<?php
+							}
 							?>
 						</div>
 
