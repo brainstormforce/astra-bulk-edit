@@ -1,6 +1,6 @@
 /*.astra-bulk-settings*/
 .astra-bulk-settings .inline-edit .title {
-    min-width: 115px;
+    min-width: 150px;
 }
 
 .astra-bulk-settings .inline-edit select {
@@ -17,4 +17,7 @@
 #wpbody-content .quick-edit-row-page .astra-bulk-settings .inline-edit-col-left,
 #wpbody-content .quick-edit-row-post .astra-bulk-settings .inline-edit-col-left {
     width: 25%;
+}
+.inline-edit-row .submit {
+    padding-left: 12px;
 }
