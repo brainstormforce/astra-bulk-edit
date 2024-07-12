@@ -1,13 +1,13 @@
 # Astra Bulk Edit #
-**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)  
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)
 **Donate link:** https://www.paypal.me/BrainstormForce  
-**Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit  
-**Requires at least:** 4.4  
-**Tested up to:** 6.5  
+**Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit
+**Requires at least:** 4.4
+**Tested up to:** 6.6
 **Stable tag:** 1.2.10
-**Requires PHP:** 5.2  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+**Requires PHP:** 5.2
+**License:** GPLv2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 An easy-to-use plugin for the Astra theme that lets you edit Page Meta Settings for multiple pages/posts at once.
 
