@@ -209,7 +209,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			// Checks save status.
 			$is_autosave     = wp_is_post_autosave( $post_id );
 			$is_revision     = wp_is_post_revision( $post_id );
-			$is_valid_nonce  = ( isset( $_POST['astra_settings_bulk_meta_box'] ) && wp_verify_nonce( $_POST['astra_settings_bulk_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce  = ( isset( $_POST['astra_settings_bulk_meta_box'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['astra_settings_bulk_meta_box'] ) ), basename( __FILE__ ) ) ) ? true : false;
 			$user_capability = ( current_user_can( 'edit_post', $post_id ) );
 
 			// Exits script depending on save status.
@@ -263,7 +263,7 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				wp_send_json_error( esc_html__( 'Action failed. Invalid Security Nonce.', 'astra-bulk-edit' ) );
 			}
 
-			$post_ids = ! empty( $_POST['post'] ) ? $_POST['post'] : array();
+			$post_ids = ! empty( $_POST['post'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['post'] ) ) : array();
 			if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
 
 				/**
