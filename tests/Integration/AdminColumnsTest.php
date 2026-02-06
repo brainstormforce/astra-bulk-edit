@@ -130,7 +130,7 @@ class AdminColumnsTest extends WP_UnitTestCase {
 	public function test_page_title_filter_customizes_header() {
 		add_filter(
 			'astra_page_title',
-			function() {
+			function () {
 				return 'Custom Theme';
 			}
 		);

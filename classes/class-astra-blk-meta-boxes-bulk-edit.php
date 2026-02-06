@@ -58,7 +58,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 
 			add_action( 'wp_ajax_astra_save_post_bulk_edit', array( $this, 'save_post_bulk_edit' ) );
-
 		}
 
 		/**
@@ -251,7 +250,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 					update_post_meta( $post_id, $key, $meta_value );
 				}
 			}
-
 		}
 
 		/**
@@ -372,7 +370,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 				echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
-
 		}
 
 		/**

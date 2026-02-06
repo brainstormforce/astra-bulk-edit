@@ -75,9 +75,9 @@ class BulkEditAjaxTest extends WP_Ajax_UnitTestCase {
 	 * @param array $meta_data Meta data to save.
 	 */
 	private function setup_ajax_request( $post_ids, $meta_data ) {
-		$_POST['action']       = 'astra_save_post_bulk_edit';
-		$_POST['astra_nonce']  = wp_create_nonce( 'astra-blk-nonce' );
-		$_POST['post']         = $post_ids;
+		$_POST['action']      = 'astra_save_post_bulk_edit';
+		$_POST['astra_nonce'] = wp_create_nonce( 'astra-blk-nonce' );
+		$_POST['post']        = $post_ids;
 
 		foreach ( $meta_data as $key => $value ) {
 			$_POST[ $key ] = $value;
@@ -88,8 +88,8 @@ class BulkEditAjaxTest extends WP_Ajax_UnitTestCase {
 	 * Clean up request data.
 	 */
 	private function cleanup_request() {
-		$_POST   = array();
-		$_GET    = array();
+		$_POST    = array();
+		$_GET     = array();
 		$_REQUEST = array();
 	}
 
@@ -222,7 +222,7 @@ class BulkEditAjaxTest extends WP_Ajax_UnitTestCase {
 		);
 
 		// Create a post owned by admin.
-		$admin_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		$admin_id      = $this->factory->user->create( array( 'role' => 'administrator' ) );
 		$admin_post_id = $this->factory->post->create(
 			array(
 				'post_title'  => 'Admin Post',

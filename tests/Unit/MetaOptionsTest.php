@@ -135,7 +135,7 @@ class MetaOptionsTest extends TestCase {
 	 * Note: adv-header-id-meta intentionally has no default.
 	 */
 	public function test_meta_options_have_default_where_expected() {
-		$meta_options     = $this->get_expected_meta_options();
+		$meta_options            = $this->get_expected_meta_options();
 		$options_without_default = array( 'adv-header-id-meta' );
 
 		foreach ( $meta_options as $key => $config ) {

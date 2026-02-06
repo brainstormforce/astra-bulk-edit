@@ -198,7 +198,7 @@ class LayoutMigrationTest extends TestCase {
 	 * Migration should only modify the three layout-related fields.
 	 */
 	public function test_migration_preserves_other_meta_fields() {
-		$meta = $this->get_base_meta();
+		$meta                        = $this->get_base_meta();
 		$meta['site-sidebar-layout'] = array( 'default' => 'left-sidebar' );
 		$meta['ast-featured-img']    = array( 'default' => 'enabled' );
 
