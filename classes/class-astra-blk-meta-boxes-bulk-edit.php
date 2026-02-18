@@ -229,10 +229,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 				switch ( $sanitize_filter ) {
 
-					case 'FILTER_SANITIZE_STRING':
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
-						break;
-
 					case 'FILTER_SANITIZE_URL':
 							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_URL );
 						break;
@@ -241,14 +237,15 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_NUMBER_INT );
 						break;
 
+					case 'FILTER_SANITIZE_STRING':
 					default:
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );
+							$meta_value = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
 						break;
 				}
 
 				// Store values.
 				if ( 'no-change' !== $meta_value ) {
-					update_post_meta( $post_id, $key, $meta_value );
+					update_post_meta( $post_id, $key, sanitize_text_field( $meta_value ) );
 				}
 			}
 
@@ -263,8 +260,8 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 				wp_send_json_error( esc_html__( 'Action failed. Invalid Security Nonce.', 'astra-bulk-edit' ) );
 			}
 
-			$post_ids = ! empty( $_POST['post'] ) ? $_POST['post'] : array();
-			if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
+			$post_ids = ! empty( $_POST['post'] ) ? array_map( 'absint', (array) $_POST['post'] ) : array();
+			if ( ! empty( $post_ids ) ) {
 
 				/**
 				 * Get meta options
@@ -280,10 +277,6 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 
 							switch ( $sanitize_filter ) {
 
-								case 'FILTER_SANITIZE_STRING':
-										$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
-									break;
-
 								case 'FILTER_SANITIZE_URL':
 										$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_URL );
 									break;
@@ -292,14 +285,15 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 										$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_NUMBER_INT );
 									break;
 
+								case 'FILTER_SANITIZE_STRING':
 								default:
-										$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );
+										$meta_value = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
 									break;
 							}
 
 							// Store values.
 							if ( 'no-change' !== $meta_value ) {
-								update_post_meta( $post_id, $key, $meta_value );
+								update_post_meta( $post_id, $key, sanitize_text_field( $meta_value ) );
 							}
 						}
 					}
@@ -366,11 +360,11 @@ if ( ! class_exists( 'Astra_Blk_Meta_Boxes_Bulk_Edit' ) ) {
 						$default_value = $meta[ $key ]['default'];
 					}
 
-					$html .= $default_value;
+					$html .= esc_html( $default_value );
 					$html .= '</div>';
 				}
 
-				echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- All dynamic values escaped above with esc_html/esc_attr.
 			}
 
 		}

@@ -61,6 +61,12 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 == Changelog ==
 
+= 1.2.11 =
+- Security: Fixed Stored XSS vulnerability in bulk edit AJAX endpoint (Contributor+). Props - Security Team.
+- Security: Added proper input sanitization using `sanitize_text_field()` for all meta fields.
+- Security: Added output escaping with `esc_html()` in admin post list columns.
+- Security: Sanitized post ID array input with `absint()`.
+
 ### 1.2.10 ###
 - Fix: Compatibility issues with WordPress 6.5
 
