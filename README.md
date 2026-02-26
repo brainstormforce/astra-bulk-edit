@@ -4,7 +4,7 @@
 **Tags:** bulk edit Astra meta settings, Astra meta settings, meta settings bulk edit, wordpress bulk edit plugin, page bulk edit, post bulk edit  
 **Requires at least:** 4.4  
 **Tested up to:** 6.9  
-**Stable tag:** 1.2.10  
+**Stable tag:** 1.2.11  
 **Requires PHP:** 5.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -60,6 +60,12 @@ Astra Bulk Edit plugin can be used only with the Astra theme.
 
 
 ## Changelog ##
+
+### 1.2.11 ###
+- Security: Fixed Stored XSS vulnerability in bulk edit AJAX endpoint (Contributor+). Props - Patchstack.
+- Security: Added proper input sanitization using `sanitize_text_field()` for all meta fields.
+- Security: Added output escaping with `esc_html()` in admin post list columns.
+- Security: Sanitized post ID array input with `absint()`.
 
 ### 1.2.10 ###
 - Fix: Compatibility issues with WordPress 6.5
