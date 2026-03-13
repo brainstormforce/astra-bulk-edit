@@ -82,6 +82,9 @@ module.exports = function( grunt ) {
 					'!composer.lock',
 					'!package-lock.json',
 					'!phpcs.xml.dist',
+					'!CLAUDE.md',
+					'!.claude/**',
+					'!internal-docs/**',
 				],
 				dest: 'astra-bulk-edit/'
 			}
