@@ -33,3 +33,5 @@ node_modules
 .gitattributes
 .github
 .wordpress-org
+.claude
+CLAUDE.md
