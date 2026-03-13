@@ -84,6 +84,7 @@ module.exports = function( grunt ) {
 					'!phpcs.xml.dist',
 					'!CLAUDE.md',
 					'!.claude/**',
+					'!internal-docs/**',
 				],
 				dest: 'astra-bulk-edit/'
 			}
