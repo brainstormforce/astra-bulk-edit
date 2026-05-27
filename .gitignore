@@ -9,3 +9,4 @@ node_modules/
 *.zip
 vendor/
 .claude/settings.local.json
+config.bat
